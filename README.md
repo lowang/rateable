@@ -1,6 +1,13 @@
 # Rateable
 
-Simple mongoid rating "plugin", stores rates in separate collection instead of embedding them
+Simple mongoid rating "plugin", stores rates in separate collection instead of embedding them.
+
+## Why?
+
+because I want my rates to be separate from rated objects, also it isn't common use case to access ratings
+so spending few ms to perform another query once a while is ok.
+Otherwise I would highly recommend embedding rates inside your objects,
+maybe using sth like: https://github.com/proton/mongoid_rateable/
 
 ## Installation
 
