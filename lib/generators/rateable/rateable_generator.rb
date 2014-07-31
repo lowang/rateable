@@ -5,6 +5,6 @@ class RateableGenerator < Rails::Generators::Base
   end
 
   def create_model_file
-    template "model.rb", "app/models/rate.rb"
+    template "model.rb", "app/models/rating.rb"
   end
 end

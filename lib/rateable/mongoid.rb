@@ -3,7 +3,7 @@ module Rateable
 
   module ClassMethods
     def acts_as_rateable(options = {})
-      options = { class_name: 'Rate' }.merge options
+      options = { class_name: 'Rating' }.merge options
       cattr_accessor :ratable_class
       self.ratable_class = options[:class_name].constantize
       has_one :rating, class_name: options[:class_name], as: :rateable
@@ -13,7 +13,7 @@ module Rateable
   def rate!(stars, user_id = nil)
     if can_rate? user_id
       self.rating ||= self.class.ratable_class.new
-      self.rating.ratings.build do |rating|
+      self.rating.rating_marks.build do |rating|
         rating.rate = stars
         rating.rater = user_id
       end

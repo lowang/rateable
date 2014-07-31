@@ -7,9 +7,9 @@ module Rateable
     end
 
     def calculate_rating
-      self.rating = ratings.inject(0.0) do |sum, el|
+      self.rating = rating_marks.inject(0.0) do |sum, el|
         sum + el.rate
-      end.to_f / ratings.size
+      end.to_f / rating_marks.size
     end
   end
 end
